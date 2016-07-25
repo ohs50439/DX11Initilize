@@ -27,10 +27,19 @@
     <ClCompile Include="src\Device\WindowDevice.cpp">
       <Filter>ソース ファイル\Device</Filter>
     </ClCompile>
+    <ClCompile Include="src\Device\DirextXDevice.cpp">
+      <Filter>ソース ファイル\Device</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Device\WindowDevice.h">
       <Filter>ヘッダー ファイル\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Device\DirectXDevice.h">
+      <Filter>ヘッダー ファイル\Device</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Macro.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
