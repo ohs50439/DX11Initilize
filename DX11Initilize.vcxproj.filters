@@ -13,10 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\Device">
+      <UniqueIdentifier>{177b78e2-d769-44f1-b7e6-2f8678689b15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Device">
+      <UniqueIdentifier>{60c83021-66e2-438e-9fa9-70f66a48d879}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="src\Device\WindowDevice.cpp">
+      <Filter>ソース ファイル\Device</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Device\WindowDevice.h">
+      <Filter>ヘッダー ファイル\Device</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
