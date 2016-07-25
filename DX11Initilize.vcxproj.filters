@@ -19,6 +19,15 @@
     <Filter Include="ヘッダー ファイル\Device">
       <UniqueIdentifier>{60c83021-66e2-438e-9fa9-70f66a48d879}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Input">
+      <UniqueIdentifier>{1c182e5f-2457-4c15-a0da-f5299f385054}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Input\Xbox360">
+      <UniqueIdentifier>{381916b7-8c4d-48f3-98ea-a57c7d2b6170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Input\KeyBoard">
+      <UniqueIdentifier>{4ff5b3cd-4657-44bb-a96d-b617a00f38cd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -30,6 +39,15 @@
     <ClCompile Include="src\Device\DirextXDevice.cpp">
       <Filter>ソース ファイル\Device</Filter>
     </ClCompile>
+    <ClCompile Include="src\Input\Xbox360.cpp">
+      <Filter>ソース ファイル\Input\Xbox360</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\xinpututil.cpp">
+      <Filter>ソース ファイル\Input\Xbox360</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\input.cpp">
+      <Filter>ソース ファイル\Input\KeyBoard</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Device\WindowDevice.h">
@@ -40,6 +58,15 @@
     </ClInclude>
     <ClInclude Include="include\Macro.h">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\xinpututil.h">
+      <Filter>ソース ファイル\Input\Xbox360</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\Xbox360.h">
+      <Filter>ソース ファイル\Input\Xbox360</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input\input.h">
+      <Filter>ソース ファイル\Input\KeyBoard</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
