@@ -19,8 +19,6 @@ public:
 	void ReSize(ULONG, ULONG);
 	bool getRunFlg() { return this->runflg; }
 	ULONG MessageLoop(void(*function)(void) = nullptr);
-	HWND getHandle(){ return this->handle; }
-	bool getWindowMode(){ return this->windowmode; }
 protected:
 private:
 	WindowDevice();
