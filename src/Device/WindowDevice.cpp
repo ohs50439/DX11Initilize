@@ -36,13 +36,13 @@ unsigned long WindowDevice::Init(HINSTANCE ins, int ncms, std::string title, uns
 	// ウィンドウクラス構造体を設定します。
 	this->wcex.cbSize = sizeof(WNDCLASSEX);
 	this->wcex.style = CS_CLASSDC;
-	this->wcex.lpfnWndProc = (WNDPROC) WndProc;
+	this->wcex.lpfnWndProc = (WNDPROC)WndProc;
 	this->wcex.cbClsExtra = 0;
 	this->wcex.cbWndExtra = 0;
 	this->wcex.hInstance = ins;
 	this->wcex.hIcon = nullptr;
 	this->wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-	this->wcex.hbrBackground = (HBRUSH) (COLOR_WINDOW + 1);
+	this->wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 	this->wcex.lpszMenuName = nullptr;
 	this->wcex.lpszClassName = classname.c_str();
 	this->wcex.hIconSm = nullptr;
@@ -60,8 +60,8 @@ unsigned long WindowDevice::Init(HINSTANCE ins, int ncms, std::string title, uns
 		this->title.c_str(),
 		WS_OVERLAPPEDWINDOW,
 		0, 0,
-		width+GetSystemMetrics(SM_CXSIZEFRAME)*2,
-		height+GetSystemMetrics(SM_CYCAPTION)+GetSystemMetrics(SM_CYSIZEFRAME),
+		width + GetSystemMetrics(SM_CXSIZEFRAME) * 2,
+		height + GetSystemMetrics(SM_CYCAPTION) + GetSystemMetrics(SM_CYSIZEFRAME),
 		nullptr,
 		nullptr,
 		ins,
@@ -82,21 +82,17 @@ unsigned long WindowDevice::Init(HINSTANCE ins, int ncms, std::string title, uns
 	return ret;
 }
 
-ULONG WindowDevice::MessageLoop(void(*function)(void)) {
+ULONG WindowDevice::MessageLoop() {
 	unsigned long ret = 0;
 	MSG msg;
-	while (this->runflg) {
-		while (PeekMessage(&msg, nullptr, 0, 0,PM_REMOVE)) {
-			if (msg.message == WM_QUIT) {
-				this->runflg = false;
-				break;
-			}
-			TranslateMessage(&msg);
-			DispatchMessage(&msg);
+	while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
+		if (msg.message == WM_QUIT) {
+			this->runflg = false;
+			break;
 		}
-		if (function)function();
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
 	}
-
 	return msg.message;
 }
 

@@ -68,5 +68,8 @@
     <ClInclude Include="src\Input\input.h">
       <Filter>ソース ファイル\Input\KeyBoard</Filter>
     </ClInclude>
+    <ClInclude Include="include\Vertex.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

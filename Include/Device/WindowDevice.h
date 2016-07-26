@@ -18,7 +18,7 @@ public:
 	std::string getTitle();
 	void ReSize(ULONG, ULONG);
 	bool getRunFlg() { return this->runflg; }
-	ULONG MessageLoop(void(*function)(void) = nullptr);
+	ULONG MessageLoop();
 	HWND getHandle() { return this->handle; }
 	unsigned long getWidth() { return this->width; }
 	unsigned long getHeight() { return this->height; }
