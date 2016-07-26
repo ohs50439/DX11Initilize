@@ -7,6 +7,9 @@
 #include <./Device/WindowDevice.h>
 #include <./Device/DirectXDevice.h>
 #include <./Vertex.h>
+
+#define SAFE_RELEASE(v) if(v) {v->Release(); v = nullptr;}
+
 // Shaderに送るカメラ情報
 struct ConstantBuffer{
 	XMMATRIX mWorld;		//ワールド変換行列
@@ -26,10 +29,10 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 	// 頂点の生成
 	Vertex4 vertex[4] = {
-		{ 0.5f, 0.5f, 1.0f },
-		{ -0.5f, 0.5f, 1.0f },
-		{ 0.5f, -0.5f, 1.0f },
-		{ -0.5f, -0.5f, 1.0f },
+		{ 500.f, 500.f, 1.0f },
+		{ -500.f, 500.f, 1.0f },
+		{ 500.f, -500.f, 1.0f },
+		{ -500.f, -500.f, 1.0f },
 	};
 
 	// VetexBufferの格納先を宣言
@@ -68,6 +71,9 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	// blobを_bufに格納
 	device.getDevice()->CreateVertexShader(vsblob->GetBufferPointer(), vsblob->GetBufferSize(), nullptr, &vs_buf);
 	device.getDevice()->CreatePixelShader(psblob->GetBufferPointer(), psblob->GetBufferSize(), nullptr, &ps_buf);
+	// Shagerの設定
+	device.getContext()->VSSetShader(vs_buf, nullptr, 0);
+	device.getContext()->PSSetShader(ps_buf, nullptr, 0);
 
 	//　インプットレイアウトを使うために必要なもの 
 	D3D11_INPUT_ELEMENT_DESC element[] = {
@@ -119,7 +125,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	bd.MiscFlags = 0;
 	bd.StructureByteStride = sizeof(float);
 	device.getDevice()->CreateBuffer(&bd, NULL, &constantbuffer); // バッファの生成
-    // Bufferに更新をかける 
+	// Bufferに更新をかける 
 	device.getContext()->UpdateSubresource(constantbuffer, 0, NULL, &mtx, 0, 0);
 	// Bufferをパイプラインにセット
 	device.getContext()->VSSetConstantBuffers(0, 1, &constantbuffer);
@@ -136,5 +142,15 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 
 		device.getSwapChain()->Present(0, 0);
 	}
+
+
+	SAFE_RELEASE(vertexbuffer);
+	SAFE_RELEASE(vs_buf);
+	SAFE_RELEASE(ps_buf);
+	SAFE_RELEASE(inputlayout);
+	SAFE_RELEASE(rasterizer);
+	SAFE_RELEASE(constantbuffer);
+
+
 	return ret;
 }
