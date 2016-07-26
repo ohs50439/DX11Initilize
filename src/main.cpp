@@ -2,10 +2,11 @@
 
 #include <Windows.h>
 #include <xnamath.h>
+#include <D3DX11.h>
+#include <d3dcompiler.h>
 #include <./Device/WindowDevice.h>
 #include <./Device/DirectXDevice.h>
 #include <./Vertex.h>
-#include <d3dcompiler.h>
 // Shaderに送るカメラ情報
 struct ConstantBuffer{
 	XMMATRIX mWorld;		//ワールド変換行列
